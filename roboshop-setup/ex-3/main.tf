@@ -10,6 +10,7 @@ resource "aws_instance" "instances" {
 
 }
 
+# always give inputs as map of maps, so referencing back later will be easy
 variable "instances" {
   default = {
     catalogue = {             # key
@@ -24,4 +25,14 @@ variable "instances" {
 
   }
 
+}
+
+# when map of maps >> output shall also be looped
+output "ec2" {
+  value = [for k,v in aws_instance.instances : v.public_ip  ]
+}
+
+# when map of maps >> output shall also be looped
+output "ec2" {
+  value = [for k,v in aws_instance.instances : " ${k} - {v.public_ip} "  ]
 }
