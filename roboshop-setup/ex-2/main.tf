@@ -29,7 +29,7 @@ variable "instances" {
 output "instances" {
   value = aws_instance.frontend.*.public_ip
 }
-# * >> indicates public_ip of all the instances
+# * >> indicates ALL
 ////////////////////////////////////////////////////////////////////////////
 
 # count loop will give index no, to access the index number

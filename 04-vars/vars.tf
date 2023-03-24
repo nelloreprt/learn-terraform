@@ -69,6 +69,7 @@ output "variable_types" {
 
 //////////////////////////////////////////////////////////////
 # list variable
+# When you use COUNT, all the attributes (output) will come as a list
 # when you use count loop, terraform will convert into LIST of resources as below
 variable "d1" {
     default =
